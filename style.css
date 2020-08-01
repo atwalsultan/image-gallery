@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 20px;
+    padding:0;
+    background: #333;
+}
+
+header h1{
+    color: #fff;
+    font-size: 6rem;
+    font-family: 'Great Vibes', cursive;
+    padding: 1rem;
+    margin: 1rem;
+    text-align: center;
+}
+
+.container {
+    max-width: 760px;
+    margin: auto;
+    border: #fff solid .5rem;
+    background: #fff;
+}
+
+.imgs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: .5rem;
+}
+
+.imgs img {
+    width: 100%;
+    height: 100px;
+    cursor: grab;
+    transition: all 0.2s ease-out;
+}
+
+.imgs img:hover {
+    transform: scale(1.1);
+}
+
+.imgs img.dragging {
+    opacity: .5;
+    transform: scale(1)
+}
+
+.modal {
+    background: rgba(0,0,0,0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .75s ease-out;
+}
+
+.modal.open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal p {
+    color: #fff;
+    font-size: 2rem;
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%, -5%);
+}
+
+.selected-img {
+    position: absolute;
+    height: 70%;
+    top: 50%;
+    left: 50%;
+    border: #fff solid .2px;
+    transform: translate(-50%, -50%);
+}
+
+.delete {
+    background: rgb(250, 50, 50);
+    position: fixed;
+    bottom: -3rem;
+    left: 0;
+    width: 100%;
+    height: 3rem;
+    transition: bottom .5s ease-out;
+}
+
+.delete p {
+    color: #fff;
+    font-size: 2rem;
+    position: absolute;
+    padding: 10px;
+    left: 50%;
+    transform: translate(-50%, -5%);
+}
+
+@media(max-width: 800px) {
+    header h1{
+        font-size: 4rem;
+    }
+
+    .container {
+        max-width: 500px;
+    }
+
+    .imgs {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .selected-img {
+        height: 55%;
+    }
+
+    .modal p {
+        bottom: 10%;
+    }
+}
+
+@media(max-width: 550px) {
+    header h1{
+        font-size: 2.6rem;
+    }
+
+    .container {
+        max-width: 350px;
+        border: #fff solid .25rem;
+    }
+
+    .imgs {
+        grid-template-columns: repeat(2, 1fr);
+        gap: .25rem;
+    }
+
+    .imgs img:hover {
+        transform: scale(1.06);
+    }
+
+    .delete p {
+        font-size: 1.5rem;
+    }
+
+    .selected-img {
+        height: 38%;
+    }
+
+    .modal p {
+        bottom: 20%;
+        font-size: 1.25rem;
+    }
+    
+}
+
+@media(max-width: 400px) {
+    header h1{
+        font-size: 2rem;
+    }
+
+    .container {
+        max-width: 200px;
+    }
+
+    .imgs {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .delete p {
+        font-size: 1.25rem;
+        transform: translate(-40%, -5%);
+    }
+
+    .selected-img {
+        height: 25%;
+    }
+
+    .modal p {
+        bottom: 30%;
+        font-size: .9rem;
+    }
+
+    .delete {
+        height: 2.25rem;
+    }
+
+    .hide {
+        visibility: hidden;
+    }
+}
