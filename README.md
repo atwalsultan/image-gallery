@@ -10,3 +10,8 @@ Responsive image gallery to view and delete images. Built using Vanilla JavaScri
 - Click to view image with caption.
 - Smooth transitions while viewing and deleting images.
 - Completely responsive to changes in window size.
+
+## Usage
+
+1. Download or clone repository.
+2. Open _index.html_ file in browser.
