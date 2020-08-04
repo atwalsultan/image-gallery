@@ -1,13 +1,28 @@
 // Select elements //
 const modal = document.querySelector('.modal');
-const imgs = document.querySelectorAll('.imgs img');
+const imgs = document.querySelector('.imgs');
 const selectedImg = document.querySelector('.selected-img');
 const caption = document.querySelector('.caption');
 const del = document.querySelector('.delete');
+const numImages = 8;
+const repeatImages = 3;
+let images = [];
+let dragging;
+
+// Insert images
+for(let i=0; i<repeatImages; i++) {
+    for(let j=0; j<numImages; j++) {
+        const image = document.createElement('img');
+        image.setAttribute('id', (numImages*i+j+1));
+        image.setAttribute('src',`images/img${j+1}.jpg`);
+        imgs.appendChild(image);
+        images.push(image);
+    }
+}
 
 // Adding event listeners //
 // Images
-imgs.forEach(img => {
+images.forEach(img => {
     img.addEventListener('click', openModal);
 
     img.addEventListener('dragstart', dragStart);
@@ -40,6 +55,7 @@ function closeModal(e){
 
 function dragStart(e) {
     e.target.classList.add('dragging');
+    draggingId = e.target.id;
     del.style.bottom = '0';
 }
 
@@ -58,10 +74,10 @@ function delDragleave() {
 }
 
 function delDrop() {
-    img = document.querySelector('.dragging');
+    img = document.getElementById(draggingId);
     img.style.width = 0;
     img.style.height = 0;
     setTimeout(() => {
         img.remove();
-    }, 300)
+    }, 300);
 }

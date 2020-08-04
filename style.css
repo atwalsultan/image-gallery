@@ -9,7 +9,6 @@
 
 body {
     margin: 20px;
-    padding:0;
     background: #333;
 }
 
@@ -146,6 +145,10 @@ header h1{
         transform: scale(1.06);
     }
 
+    .delete {
+        height: 2.75rem;
+    }
+
     .delete p {
         font-size: 1.5rem;
     }
@@ -159,40 +162,4 @@ header h1{
         font-size: 1.25rem;
     }
     
-}
-
-@media(max-width: 400px) {
-    header h1{
-        font-size: 2rem;
-    }
-
-    .container {
-        max-width: 200px;
-    }
-
-    .imgs {
-        grid-template-columns: repeat(1, 1fr);
-    }
-
-    .delete p {
-        font-size: 1.25rem;
-        transform: translate(-40%, -5%);
-    }
-
-    .selected-img {
-        height: 25%;
-    }
-
-    .modal p {
-        bottom: 30%;
-        font-size: .9rem;
-    }
-
-    .delete {
-        height: 2.25rem;
-    }
-
-    .hide {
-        visibility: hidden;
-    }
 }
