@@ -4,7 +4,7 @@ Responsive image gallery to view and delete images. Built using Vanilla JavaScri
 
 ## Project Specifications
 
-- View images in a grid.
+- View images in a grid using CSS grid layout.
 - Hover effect for images in grid.
 - Drag and drop to delete image.
 - Click to view image with caption.
