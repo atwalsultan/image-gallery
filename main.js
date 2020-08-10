@@ -1,4 +1,5 @@
 // Select elements
+const loader = document.querySelector('.loader');
 const modal = document.querySelector('.modal');
 const header = document.querySelector('header h1');
 const container = document.querySelector('.container');
@@ -22,13 +23,19 @@ for(let i=0; i<repeatImages; i++) {
     }
 }
 
-// Animation on page load
-setTimeout(function(){
-    header.style.marginTop = '1rem';
-    setTimeout(function() {
-        container.style.opacity = 1;
-    }, 2500);
-}, 5);
+// Loader and animations on page load
+setTimeout(() => {
+    loader.style.opacity = 0;
+    setTimeout(() => {loader.style.display = 'none'}, 1000);
+
+    header.style.display = 'block';
+    container.style.display = 'block';
+    
+    setTimeout(() => {
+        header.style.marginTop = '1rem';
+        setTimeout(() => {container.style.opacity = '1'}, 2300);
+    }, 20);
+}, 3000);
 
 // Adding event listeners //
 // Images

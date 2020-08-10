@@ -7,13 +7,40 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.loader {
+    position: absolute;
+    top: 45%;
+    left: 46%;
+    height: 50px;
+    transition: opacity 1s ease-in;
+    transform-origin: bottom center;
+    animation: rotate 3s linear infinite;
+}
+
+.circle {
+    display: inline-block;
+    background-color: #2487d8;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: grow 1.5s linear infinite;
+    margin: -10px;
+}
+
+.circle:nth-child(2) {
+    background-color: #f4f4f4;
+    animation-delay: 0.75s;
+}
+
 body {
     margin: 20px;
     background: #333;
 }
 
 header h1{
-    margin-top: -10rem;
+    margin-top: -20rem;
+    display: none;
     transition: all 2s ease-out;
     color: #fff;
     font-size: 6rem;
@@ -24,7 +51,8 @@ header h1{
 
 .container {
     opacity: 0;
-    transition: all 2s ease-in-out;
+    display: none;
+    transition: all 1.5s ease-in-out;
     max-width: 760px;
     margin: auto;
     border: #fff solid .5rem;
@@ -86,6 +114,7 @@ header h1{
     left: 50%;
     border: #fff solid .2px;
     transform: translate(-50%, -50%);
+    transition: all 1s ease-out;
 }
 
 .delete {
@@ -165,4 +194,16 @@ header h1{
         font-size: 1.25rem;
     }
     
+}
+
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes grow {
+    50% {
+        transform: scale(1);
+    }
 }
