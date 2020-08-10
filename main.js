@@ -1,5 +1,7 @@
-// Select elements //
+// Select elements
 const modal = document.querySelector('.modal');
+const header = document.querySelector('header h1');
+const container = document.querySelector('.container');
 const imgs = document.querySelector('.imgs');
 const selectedImg = document.querySelector('.selected-img');
 const caption = document.querySelector('.caption');
@@ -19,6 +21,14 @@ for(let i=0; i<repeatImages; i++) {
         images.push(image);
     }
 }
+
+// Animation on page load
+setTimeout(function(){
+    header.style.marginTop = '1rem';
+    setTimeout(function() {
+        container.style.opacity = 1;
+    }, 2500);
+}, 5);
 
 // Adding event listeners //
 // Images
