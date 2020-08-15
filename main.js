@@ -1,6 +1,8 @@
 // Select elements
 const loader = document.querySelector('.loader');
 const modal = document.querySelector('.modal');
+const next = document.querySelector('#next');
+const prev = document.querySelector('#prev');
 const header = document.querySelector('header h1');
 const container = document.querySelector('.container');
 const imgs = document.querySelector('.imgs');
@@ -11,6 +13,7 @@ const numImages = 8;
 const repeatImages = 3;
 let images = [];
 let dragging;
+let selectedId;
 
 // Insert images
 for(let i=0; i<repeatImages; i++) {
@@ -50,6 +53,10 @@ images.forEach(img => {
 // Modal
 modal.addEventListener('click', closeModal);
 
+// Arrow keys
+next.addEventListener('click', nextImg);
+prev.addEventListener('click', prevImg);
+
 // Del
 del.addEventListener('dragover', delDragover);
 del.addEventListener('dragleave', delDragleave);
@@ -60,8 +67,25 @@ function openModal(e){
     modal.classList.add('open');
     // Display selected image
     selectedImg.src = e.target.getAttribute('src');
+    selectedId = parseInt(e.target.getAttribute('id'));
     // Add caption
     caption.textContent = 'This is the caption!';
+}
+
+function nextImg() {
+    if(selectedId < images.length) {
+        selectedId++;
+        img = document.getElementById(selectedId);
+        selectedImg.src = img.getAttribute('src');
+    }
+}
+
+function prevImg() {
+    if(selectedId > 1) {
+        selectedId--;
+        img = document.getElementById(selectedId);
+        selectedImg.src = img.getAttribute('src');
+    }
 }
 
 function closeModal(e){
