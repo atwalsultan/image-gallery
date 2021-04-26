@@ -9,21 +9,18 @@ const imgs = document.querySelector('.imgs');
 const selectedImg = document.querySelector('.selected-img');
 const caption = document.querySelector('.caption');
 const del = document.querySelector('.delete');
-const numImages = 8;
-const repeatImages = 3;
+const numImages = 24;
 let images = [];
 let dragging;
 let selectedId;
 
 // Insert images
-for(let i=0; i<repeatImages; i++) {
-    for(let j=0; j<numImages; j++) {
-        const image = document.createElement('img');
-        image.setAttribute('id', (numImages*i+j+1));
-        image.setAttribute('src',`images/img${j+1}.jpg`);
-        imgs.appendChild(image);
-        images.push(image);
-    }
+for(let j=0; j<numImages; j++) {
+    const image = document.createElement('img');
+    image.setAttribute('id', `img${j}`);
+    image.setAttribute('src',`https://picsum.photos/300?random=${j}`);
+    imgs.appendChild(image);
+    images.push(image);
 }
 
 // Loader and animations on page load
