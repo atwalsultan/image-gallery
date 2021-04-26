@@ -70,6 +70,7 @@ header h1{
     height: 100px;
     cursor: grab;
     transition: all 0.2s ease-out;
+    object-fit: cover;
 }
 
 .imgs img:hover {
